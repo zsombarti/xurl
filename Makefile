@@ -28,9 +28,9 @@ format:
 lint:
 	golangci-lint run ./...
 
-# default target: just format and build locally (skip tests for quick iteration)
+# default target: just build locally (format separately to avoid surprise changes)
 .PHONY: all
-all: format build
+all: build
 
 # ci runs format check, build, and tests with the race detector
 .PHONY: ci
