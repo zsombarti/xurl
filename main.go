@@ -1,25 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
-	"github.com/xdevplatform/xurl/auth"
-	"github.com/xdevplatform/xurl/cli"
-	"github.com/xdevplatform/xurl/config"
+	"github.com/xdevplatform/xurl/cmd"
 )
 
+// main is the entry point for xurl, a command-line tool for interacting
+// with the X (Twitter) API using OAuth credentials.
 func main() {
-	// Create a new config from environment variables
-	config := config.NewConfig()
-	auth := auth.NewAuth(config)
-
-	// Create the root command
-	rootCmd := cli.CreateRootCommand(config, auth)
-
-	// Execute the command
-	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
+	if err := cmd.Execute(); err != nil {
 		os.Exit(1)
 	}
 }
