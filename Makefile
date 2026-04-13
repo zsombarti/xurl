@@ -32,8 +32,9 @@ lint:
 .PHONY: all
 all: format build
 
+# ci runs format check, build, and tests with the race detector
 .PHONY: ci
-ci: format build test
+ci: lint format build test
 
 .PHONY: release
 release:
