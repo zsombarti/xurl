@@ -28,8 +28,12 @@ format:
 lint:
 	golangci-lint run ./...
 
+# default target: just format and build locally (skip tests for quick iteration)
 .PHONY: all
-all: format build test
+all: format build
+
+.PHONY: ci
+ci: format build test
 
 .PHONY: release
 release:
