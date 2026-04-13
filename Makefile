@@ -14,6 +14,11 @@ clean:
 test:
 	go test -v -race ./...
 
+# run tests without the race detector for faster local iteration
+.PHONY: test-fast
+test-fast:
+	go test -v ./...
+
 .PHONY: format
 format:
 	go fmt ./...
