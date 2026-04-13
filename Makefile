@@ -23,6 +23,11 @@ test-fast:
 format:
 	go fmt ./...
 
+# lint requires golangci-lint: https://golangci-lint.run/usage/install/
+.PHONY: lint
+lint:
+	golangci-lint run ./...
+
 .PHONY: all
 all: format build test
 
