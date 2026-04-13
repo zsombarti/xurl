@@ -12,14 +12,14 @@ clean:
 
 .PHONY: test
 test:
-	go test -v ./...
+	go test -v -race ./...
 
 .PHONY: format
 format:
 	go fmt ./...
 
 .PHONY: all
-all: build test format 
+all: format build test
 
 .PHONY: release
 release:
