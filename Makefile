@@ -32,9 +32,15 @@ lint:
 .PHONY: all
 all: build
 
-# ci runs format check, build, and tests with the race detector
+# ci runs lint, format check, build, and tests with the race detector
+# note: format runs before build so any fmt changes are caught early
 .PHONY: ci
 ci: lint format build test
+
+# release-dry-run is useful for testing goreleaser config locally without publishing
+.PHONY: release-dry-run
+release-dry-run:
+	goreleaser release --snapshot --clean
 
 .PHONY: release
 release:
