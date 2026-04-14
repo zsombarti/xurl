@@ -56,3 +56,8 @@ release:
 .PHONY: tidy
 tidy:
 	go mod tidy
+
+# check-tidy verifies go.mod and go.sum are up to date (useful in ci to catch forgotten `go mod tidy`)
+.PHONY: check-tidy
+check-tidy: tidy
+	git diff --exit-code go.mod go.sum
