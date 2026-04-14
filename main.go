@@ -20,5 +20,6 @@ func main() {
 		}
 		os.Exit(1)
 	}
-	os.Exit(0)
+	// No explicit os.Exit(0) needed; a clean return from main is exit code 0.
+	// Removed to avoid masking deferred cleanup functions if any are added later.
 }
