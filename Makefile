@@ -51,3 +51,8 @@ release-dry-run:
 .PHONY: release
 release:
 	goreleaser release --clean
+
+# tidy keeps go.mod and go.sum clean; run this before committing dependency changes
+.PHONY: tidy
+tidy:
+	go mod tidy
