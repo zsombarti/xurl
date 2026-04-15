@@ -54,7 +54,8 @@ func init() {
 	rootCmd.Flags().StringArrayVarP(&headers, "header", "H", nil, "HTTP headers to include (can be specified multiple times)")
 	rootCmd.Flags().StringVarP(&method, "request", "X", "", "HTTP method to use (default: GET, or POST if body is provided)")
 	rootCmd.Flags().StringVarP(&body, "data", "d", "", "Request body data")
-	rootCmd.Flags().BoolVarP(&prettyJSON, "pretty", "p", true, "Pretty-print JSON responses")
+	// Default pretty-print to false so raw output can be piped to jq without interference
+	rootCmd.Flags().BoolVarP(&prettyJSON, "pretty", "p", false, "Pretty-print JSON responses")
 }
 
 // runRequest is the main handler for the root command.
