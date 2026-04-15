@@ -63,6 +63,7 @@ check-tidy: tidy
 	git diff --exit-code go.mod go.sum
 
 # help lists available targets — handy since this Makefile is growing
+# personal note: I added descriptions here to make the output more useful
 .PHONY: help
 help:
-	@grep -E '^[a-zA-Z_-]+:' Makefile | sed 's/:.*//' | sort
+	@grep -E '^[a-zA-Z_-]+:' Makefile | grep -v '^#' | sed 's/:.*//' | sort | awk '{printf "  %-20s\n", $$1}'
